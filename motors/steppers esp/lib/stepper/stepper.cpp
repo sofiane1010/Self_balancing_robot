@@ -1,23 +1,43 @@
 #include <Arduino.h>
 #include <stepper.h>
 
-int driverPUL = 18;    // PUL- pin
-int driverDIR = 19;    // DIR- pin
-float pd;   
+Stepper::Stepper(int dirPin, int stepPin){
+  this->dirPin = dirPin;
+  this->stepPin = stepPin;
+  this->currentPos = 0;
+}
 
-void run(int position){
-  for (int i = 0; i < position;i++){
-      digitalWrite(driverPUL,HIGH);
-      delayMicroseconds(pd);
-      digitalWrite(driverPUL,LOW);
-      delayMicroseconds(pd);
+void Stepper::run() {
+    for (int i = 0; i < this->targetPosition;i++){
+      digitalWrite(this->stepPin,HIGH);
+      delayMicroseconds(this->periode);
+      digitalWrite(this->stepPin,LOW);
+      delayMicroseconds(this->periode);
+      this->currentPos++;
   }
 }
 
-void setSpeed(int stepPerSec) {
-  if(stepPerSec > 0) digitalWrite(driverDIR, HIGH);
-  if(stepPerSec < 0) digitalWrite(driverDIR, LOW);
-  pd = (500*1000) / abs(stepPerSec); // règle de 3 (stepPerSec => 1000ms, 1step => 2pd)
-  if (pd < 400.00)
-    pd = 400.00;
+void Stepper::setMaxSpeed(int maxStepPerSec){
+  this->minPeriode = (1000000) / (2*abs(maxStepPerSec)); // règle de 3 (stepPerSec => 1000ms, 1step => 2periode)
+}
+
+void Stepper::setSpeed(int stepPerSec){
+  if(stepPerSec > 0) digitalWrite(this->dirPin, HIGH);
+  if(stepPerSec < 0) digitalWrite(this->dirPin, LOW);
+
+  this->periode = (1000000) / (2*abs(stepPerSec)); // règle de 3 (stepPerSec => 1000ms, 1step => 2periode)
+  if (this->periode < this->minPeriode)
+    this->periode = this->minPeriode;
+}
+
+int Stepper::currentPosition(){
+  return this->currentPos;
+}
+
+void Stepper::setCurrentPosition(int newPosition){
+  this->currentPos = newPosition;
+}
+
+void Stepper::moveTo(int targetPosition){
+  this->targetPosition = targetPosition;
 }

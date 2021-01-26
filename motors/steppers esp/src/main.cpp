@@ -1,16 +1,23 @@
 #include <Arduino.h>
 #include <stepper.h>
 
+const int dirPin = 19;
+const int stepPin = 18;
+
+Stepper stepper1(dirPin, stepPin);
+
 void setup() {
-  pinMode (18, OUTPUT);
-  pinMode (19, OUTPUT);
-  digitalWrite(19, HIGH);
+  pinMode (stepPin, OUTPUT);
+  pinMode (dirPin, OUTPUT);
   Serial.begin(115200);
+  stepper1.setMaxSpeed(1250);
 }
  
 void loop() {
-  setSpeed(1000);
-  run(1000);
-  setSpeed(-1000);
-  run(1000);
+  stepper1.moveTo(1250);
+  stepper1.setSpeed(2000);
+  stepper1.run();
+  stepper1.moveTo(1250);
+  stepper1.setSpeed(-2000);
+  stepper1.run();
 }
