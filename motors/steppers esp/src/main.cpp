@@ -10,14 +10,15 @@ void setup() {
   pinMode (stepPin, OUTPUT);
   pinMode (dirPin, OUTPUT);
   Serial.begin(115200);
-  stepper1.setMaxSpeed(1250);
+  stepper1.setMaxSpeed(10000);
 }
  
 void loop() {
-  stepper1.moveTo(1250);
-  stepper1.setSpeed(2000);
+  float t = millis();
+  stepper1.moveTo(400000);
+  stepper1.setSpeed(2000000);
+  stepper1.setAcceleration(1000);
   stepper1.run();
-  stepper1.moveTo(1250);
-  stepper1.setSpeed(-2000);
-  stepper1.run();
+  Serial.println((millis() - t)/1000);
+  delay(1000);
 }

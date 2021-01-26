@@ -2,11 +2,14 @@ class Stepper{
     private:
         int dirPin;
         int stepPin;
-        float periode;
-        float minPeriode;
         int currentPos;
         int targetPosition;
-        
+        int currentSpeed;
+        int acceleration;
+        float finalPeriode;
+        float initialPeriode;
+        float currentPeriode;
+        float minPeriode;
 
     public:
         Stepper(int dirPin, int stepPin);
@@ -16,4 +19,6 @@ class Stepper{
         void setCurrentPosition(int newPosition);
         void moveTo(int targetPosition);
         void setMaxSpeed(int maxStepPerSec);
+        void setAcceleration(int accel);
+        void setCurrentSpeed();
 };
