@@ -1,24 +1,30 @@
 #include <Arduino.h>
 #include <stepper.h>
 
-const int dirPin = 19;
-const int stepPin = 18;
+const int dirPin1 = 19;
+const int stepPin1 = 18;
+const int dirPin2 = 33;
+const int stepPin2 = 32;
+int flag = true;
 
-Stepper stepper1(dirPin, stepPin);
+Stepper steppers(dirPin1, stepPin1, dirPin2, stepPin2);
 
 void setup() {
-  pinMode (stepPin, OUTPUT);
-  pinMode (dirPin, OUTPUT);
+  pinMode (stepPin1, OUTPUT);
+  pinMode (dirPin1, OUTPUT);
+  pinMode (stepPin2, OUTPUT);
+  pinMode (dirPin2, OUTPUT);
   Serial.begin(115200);
-  stepper1.setMaxSpeed(10000);
+  steppers.setMaxSpeed(10000);
+  steppers.setAcceleration(5000);
 }
  
 void loop() {
-  float t = millis();
-  stepper1.moveTo(400000);
-  stepper1.setSpeed(2000000);
-  stepper1.setAcceleration(1000);
-  stepper1.run();
-  Serial.println((millis() - t)/1000);
-  delay(1000);
+  if(flag){
+  steppers.moveTo(-2000, "translate");
+  steppers.setSpeed(5000);
+  steppers.run();
+  flag = false;
+  }
+
 }
