@@ -6,6 +6,7 @@ class Stepper{
         int targetPosition;
         int currentSpeed;
         int acceleration;
+        int accelInterval;
         float finalPeriode;
         float initialPeriode;
         float currentPeriode;

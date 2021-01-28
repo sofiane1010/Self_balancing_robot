@@ -6,6 +6,7 @@ Stepper::Stepper(int dirPin, int stepPin){
   this->stepPin = stepPin;
   this->currentPos = 0;
   this->initialPeriode = 2000;
+  this->accelInterval = 20;
 }
 
 void Stepper::run() {
@@ -15,7 +16,7 @@ void Stepper::run() {
 
   int prevTime = millis();
   for (int i = 0; i < this->targetPosition;i++){
-    if(millis() - prevTime >= 20) {
+    if(millis() - prevTime >= this->accelInterval) {
       prevTime = millis();
       this->setCurrentSpeed();
     }
@@ -42,7 +43,7 @@ void Stepper::setSpeed(int stepPerSec){
 
 void Stepper::setCurrentSpeed(){
   if((int)this->targetPosition/2 > this->currentPos){
-    this->currentSpeed += this->acceleration * 0.02;
+    this->currentSpeed += this->acceleration * this->accelInterval/1000;
     this->currentPeriode = 1000000 / (2 * this->currentSpeed);
   } else {
     this->currentSpeed -= this->acceleration * 0.02;
