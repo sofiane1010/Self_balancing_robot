@@ -10,11 +10,7 @@ class Stepper{
         int targetPosition;
         int currentSpeed;
         int acceleration;
-<<<<<<< Updated upstream
         int accelInterval;
-=======
-        int accelTime;
->>>>>>> Stashed changes
         float finalPeriode;
         float initialPeriode;
         float currentPeriode;
