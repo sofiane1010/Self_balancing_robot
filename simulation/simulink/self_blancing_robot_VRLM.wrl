@@ -1,0 +1,289 @@
+#VRML V2.0 utf8
+
+#Created with V-Realm Builder v2.0
+#Integrated Data Systems Inc.
+#www.ids-net.com
+
+
+Background {
+	groundAngle	[ 0.9, 1.5, 1.57 ]
+	groundColor	[ 0.53 0.512408 0.504606,
+			  0.205946 0.22 0.205093,
+			  0.656212 0.676947 0.71,
+			  0.529162 0.57 0.510685 ]
+	skyAngle	[ 0.1, 1.2, 1.57 ]
+	skyColor	[ 0.76238 0.8 0.1427,
+			  0.277798 0.219779 0.7,
+			  0.222549 0.390234 0.7,
+			  0.60094 0.662637 0.69 ]
+}
+DEF stick_wheels Transform {
+	translation	3.57628e-007 2.42889e-006 3.7998e-007
+	rotation	0 0 1  1.5708
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	2
+			radius	0.07
+			top	TRUE
+			bottom	TRUE
+		}
+
+	}
+}
+DEF R_wheel Transform {
+	translation	1.1 0 0
+	rotation	0 0 1  1.5708
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0 0 0
+				shininess	0.2
+				transparency	0
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	0.3
+			radius	0.5
+		}
+
+	}
+}
+DEF L_wheel Transform {
+	translation	-1.1 0 0
+	rotation	0 0 1  1.5708
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0 0 0
+				shininess	0.2
+				transparency	0
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	0.3
+			radius	0.5
+		}
+
+	}
+}
+DEF chassis1 Transform {
+	translation	0 0.1 0
+	rotation	1 0 0  0.00169146
+	center	0 -0.1 0
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0.519883 0.193455 0.8
+				shininess	0.2
+				transparency	0
+			}
+
+		}
+
+		geometry	Box {
+			size	2 0.1 0.95
+		}
+
+	}
+}
+DEF chassis2 Transform {
+	translation	0 1.35 0
+	rotation	1 0 0  0.00169146
+	center	0 -1.35 0
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0.52 0.19 0.8
+				emissiveColor	0 0 0
+				shininess	0.2
+				specularColor	0 0 0
+				transparency	0
+			}
+
+		}
+
+		geometry	Box {
+			size	2 0.1 0.95
+		}
+
+	}
+}
+DEF chassis3 Transform {
+	translation	0 2.6 0
+	rotation	1 0 0  0.00169146
+	center	0 -2.6 0
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+				ambientIntensity	0.2
+				diffuseColor	0.52 0.19 0.8
+				shininess	0.2
+				transparency	0
+			}
+
+		}
+
+		geometry	Box {
+			size	2 0.1 0.95
+		}
+
+	}
+}
+DEF stick1_chassis1 Transform {
+	translation	0.9 0.725 0.375
+	rotation	1 0 0  0.00169146
+	center	-0.9 -0.725 -0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick2_chassis1 Transform {
+	translation	-0.9 0.725 0.375
+	rotation	1 0 0  0.00169146
+	center	0.9 -0.725 -0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick3_chassis1 Transform {
+	translation	-0.9 0.725 -0.375
+	rotation	1 0 0  0.00169146
+	center	0.9 -0.725 0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick4_chassis1 Transform {
+	translation	0.9 0.725 -0.375
+	rotation	1 0 0  0.00169146
+	center	-0.9 -0.725 0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick1_chassis2 Transform {
+	translation	0.9 1.975 -0.375
+	rotation	1 0 0  0.00169146
+	center	-0.9 -1.975 -0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick2_chassis2 Transform {
+	translation	-0.9 1.975 -0.375
+	rotation	1 0 0  0.00169146
+	center	0.9 -1.975 -0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick3_chassis2 Transform {
+	translation	-0.9 1.975 0.375
+	rotation	1 0 0  0.00169146
+	center	0.9 -1.975 0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
+DEF stick4_chassis2 Transform {
+	translation	0.9 1.975 0.375
+	rotation	1 0 0  0.00169146
+	center	-0.9 -1.975 0.375
+	children Shape {
+		appearance	Appearance {
+			material	Material {
+			}
+
+		}
+
+		geometry	Cylinder {
+			height	1.25
+			radius	0.05
+		}
+
+	}
+}
