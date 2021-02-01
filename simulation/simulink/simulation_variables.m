@@ -22,5 +22,7 @@ R= 1;
 K= lqr(A, B, Q, R)
 
 %% Commande discret
+Ad= eye(4)+ A*8*10^(-3);
+Bd= B*8*10^(-3);
 
-
+Kd= lqr(Ad, Bd, Q, R)
